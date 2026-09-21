@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://us-meeting-timebox-timer.enjoy-onepage.com/sitemap.xml

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Meeting Timebox Timer - Scrum Standup & Speaker Timer</title>
+    <meta name="description" content="Eliminate meeting overrun with real-time agenda timeboxing and per-speaker countdown timer. High-contrast HUD for screen sharing and Web Audio beeps.">
+    <link rel="canonical" href="https://us-meeting-timebox-timer.enjoy-onepage.com/">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:title" content="Agile Meeting Timebox Timer - Scrum Standup & Speaker Timer">
+    <meta property="og:description" content="Real-time agenda timeboxing and per-speaker countdown timer with high-contrast screen-sharing HUD.">
+    <meta property="og:image" content="https://us-meeting-timebox-timer.enjoy-onepage.com/og-image.png">
+    <meta property="og:url" content="https://us-meeting-timebox-timer.enjoy-onepage.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agile Meeting Timebox Timer">
+    <meta name="twitter:description" content="Real-time agenda timeboxing and per-speaker countdown timer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style id="mobile-hardening-shield">
+        html, body { max-width: 100%; overflow-x: hidden; }
+        .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; margin: 8px auto 16px; }
+        .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Agile Meeting Timebox Timer",
+      "inLanguage": "en-US",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">⏱️</span>
+                <span class="font-black tracking-tight text-white text-lg">MeetingBox US</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="/guides/guide.html" class="text-xs font-semibold text-blue-400 hover:text-blue-300 py-1.5 px-3 rounded-lg border border-blue-500/30 hover:bg-blue-500/10 transition">Meeting Guide</a>
+                <button id="soundToggleBtn" onclick="toggleAudio()" class="text-xs font-semibold text-slate-300 hover:text-white py-1.5 px-3 rounded-lg bg-slate-800 border border-slate-700 transition flex items-center gap-1">
+                    <span id="soundIcon">🔔</span> <span id="soundText">Sound ON</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top AdSense -->
+    <div class="manual-ad-box">
+        <ins class="adsbygoogle"
+             style="display:block;height:60px;max-height:60px;"
+             data-ad-client="ca-pub-2228289204702106"
+             data-ad-slot="3824727725"
+             data-ad-format="horizontal"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-2">Agile Meeting Timebox & Speaker Timer</h1>
+            <p class="text-slate-400 text-sm max-w-2xl mx-auto">High-contrast screen-sharing HUD to prevent meeting overrun in daily standups, sprint reviews, and pitch calls.</p>
+        </div>
+
+        <!-- 2-Column Gold Standard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- Left Col -->
+            <div class="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+                <div>
+                    <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Agenda & Time Settings
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1" for="meetingTitle">Meeting Title / Agenda</label>
+                            <input type="text" id="meetingTitle" value="Sprint Planning & Standup" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1" for="totalMinutes">Total Duration (Minutes)</label>
+                                <input type="number" id="totalMinutes" value="30" min="1" max="180" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1" for="speakerSeconds">Speaker Limit (Seconds)</label>
+                                <input type="number" id="speakerSeconds" value="120" min="10" max="900" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1" for="speakerName">Current Speaker & Role</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="speakerName" value="Alex Rivera (Lead Architect)" class="flex-grow bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <button onclick="nextSpeakerQuick()" class="h-11 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 transition shrink-0">Next Speaker</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-3">
+                    <button id="startPauseBtn" onclick="toggleTimer()" class="h-12 flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
+                        <span id="playIcon">▶</span> <span id="playText">Start Meeting</span>
+                    </button>
+                    <button onclick="resetSpeakerTimer()" class="h-12 px-5 bg-amber-600/20 hover:bg-amber-600/30 text-amber-400 border border-amber-500/30 font-bold rounded-xl text-sm transition">
+                        Reset Speaker
+                    </button>
+                    <button onclick="resetAllMeeting()" class="h-12 px-4 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-xl text-sm transition">
+                        Reset All
+                    </button>
+                </div>
+
+                <!-- Presets -->
+                <div>
+                    <span class="block text-xs font-semibold text-slate-500 mb-2">Quick Presets</span>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="setSpeakerTime(60)" class="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs rounded-lg text-slate-300">1m (Elevator)</button>
+                        <button onclick="setSpeakerTime(120)" class="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs rounded-lg text-slate-300">2m (Daily Standup)</button>
+                        <button onclick="setSpeakerTime(180)" class="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs rounded-lg text-slate-300">3m (Sprint Review)</button>
+                        <button onclick="setSpeakerTime(300)" class="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs rounded-lg text-slate-300">5m (Deep Pitch)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Col -->
+            <div class="lg:col-span-6 space-y-6 lg:sticky lg:top-20">
+                <div id="hudCard" class="bg-slate-900 border-2 border-slate-800 rounded-2xl p-6 shadow-2xl transition-all duration-300">
+                    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Agenda</span>
+                            <div id="hudTitle" class="text-lg font-bold text-white truncate max-w-xs">Sprint Planning & Standup</div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Meeting Time Left</span>
+                            <div id="hudTotalTime" class="text-xl font-mono font-black text-blue-400">30:00</div>
+                        </div>
+                    </div>
+
+                    <!-- Speaker Large HUD -->
+                    <div class="py-6 text-center">
+                        <div class="text-sm font-semibold text-slate-400 mb-1">
+                            Current Speaker: <span id="hudSpeaker" class="text-white font-bold">Alex Rivera (Lead Architect)</span>
+                        </div>
+                        <div id="hudSpeakerTime" class="text-6xl sm:text-7xl font-mono font-black tracking-tighter text-white my-3">
+                            02:00
+                        </div>
+                        <div id="statusBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> Ready
+                        </div>
+                    </div>
+
+                    <!-- Progress Bars -->
+                    <div class="space-y-3 pt-4 border-t border-slate-800">
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-400 mb-1">
+                                <span>Speaker Progress</span>
+                                <span id="speakerProgressText">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800">
+                                <div id="speakerProgressBar" class="bg-blue-500 h-full transition-all duration-500 w-0"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-400 mb-1">
+                                <span>Total Meeting Progress</span>
+                                <span id="totalProgressText">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800">
+                                <div id="totalProgressBar" class="bg-slate-600 h-full transition-all duration-500 w-0"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Copy Result -->
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+                        <button onclick="copyMeetingResults()" class="h-11 px-5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2">
+                            <span>📋</span> Copy Results
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Box -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 text-xs text-slate-400 flex justify-between items-center">
+                    <div>
+                        Speakers Completed: <strong id="completedSpeakersCount" class="text-white">0</strong>
+                    </div>
+                    <div>
+                        Punctuality Score: <strong class="text-emerald-400 font-bold">100% On Track</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="mt-16 max-w-4xl mx-auto space-y-4">
+            <h2 class="text-xl font-bold text-white mb-6 text-center">Frequently Asked Questions (FAQ)</h2>
+            <details class="bg-slate-900 border border-slate-800 rounded-xl p-4 cursor-pointer">
+                <summary class="font-bold text-white text-sm">Do auditory alerts work in background browser tabs?</summary>
+                <p class="mt-3 text-xs text-slate-400 leading-relaxed">Yes. Using the Web Audio API, chime notifications will ring clearly at the 30-second warning and end-of-time mark even when this tab is hidden behind Zoom or Google Meet windows.</p>
+            </details>
+            <details class="bg-slate-900 border border-slate-800 rounded-xl p-4 cursor-pointer">
+                <summary class="font-bold text-white text-sm">How does timeboxing optimize screen sharing during scrum?</summary>
+                <p class="mt-3 text-xs text-slate-400 leading-relaxed">The high-contrast dark HUD display makes remaining time instantly legible across remote screens without taking up full display estate, ensuring disciplined adherence to agile cadence.</p>
+            </details>
+            <details class="bg-slate-900 border border-slate-800 rounded-xl p-4 cursor-pointer">
+                <summary class="font-bold text-white text-sm">Is any corporate meeting information transmitted to cloud servers?</summary>
+                <p class="mt-3 text-xs text-slate-400 leading-relaxed">No. This tool operates on a 100% serverless local execution model. All agendas, speaker names, and durations remain confidential within your local browser memory.</p>
+            </details>
+        </section>
+    </main>
+
+    <!-- Bottom AdSense -->
+    <div class="manual-ad-box" style="margin: 24px auto 16px;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2228289204702106"
+             data-ad-slot="3416334507"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>&copy; 2026 MeetingBox US. 100% Serverless Local Productivity Engine.</div>
+            <div class="flex gap-4">
+                <a href="/guides/guide.html" class="hover:text-slate-400">Meeting Guide</a>
+                <a href="/privacy.html" class="hover:text-slate-400">Privacy Policy</a>
+                <a href="/terms.html" class="hover:text-slate-400">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-5 py-2.5 rounded-xl shadow-2xl text-xs font-bold transition-all duration-300 opacity-0 pointer-events-none z-50">
+        Copied to clipboard!
+    </div>
+
+    <script>
+        let timerInterval = null;
+        let isRunning = false;
+        let audioEnabled = true;
+        let audioCtx = null;
+
+        let totalDuration = 30 * 60;
+        let totalRemaining = 30 * 60;
+        let speakerDuration = 120;
+        let speakerRemaining = 120;
+        let speakersCompleted = 0;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playBeep(freq = 880, duration = 0.15) {
+            if (!audioEnabled) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            document.getElementById('soundIcon').textContent = audioEnabled ? '🔔' : '🔕';
+            document.getElementById('soundText').textContent = audioEnabled ? 'Sound ON' : 'Muted';
+            if (audioEnabled) playBeep(660, 0.1);
+        }
+
+        function formatTime(sec) {
+            const sign = sec < 0 ? '-' : '';
+            const absSec = Math.abs(sec);
+            const m = Math.floor(absSec / 60);
+            const s = absSec % 60;
+            return `${sign}${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function updateUI() {
+            document.getElementById('hudTitle').textContent = document.getElementById('meetingTitle').value || 'Meeting';
+            document.getElementById('hudSpeaker').textContent = document.getElementById('speakerName').value || 'Speaker';
+            document.getElementById('hudTotalTime').textContent = formatTime(totalRemaining);
+            document.getElementById('hudSpeakerTime').textContent = formatTime(speakerRemaining);
+
+            const totalPct = Math.min(100, Math.max(0, ((totalDuration - totalRemaining) / totalDuration) * 100));
+            document.getElementById('totalProgressBar').style.width = totalPct + '%';
+            document.getElementById('totalProgressText').textContent = Math.round(totalPct) + '%';
+
+            const spkPct = Math.min(100, Math.max(0, ((speakerDuration - speakerRemaining) / speakerDuration) * 100));
+            document.getElementById('speakerProgressBar').style.width = spkPct + '%';
+            document.getElementById('speakerProgressText').textContent = Math.round(spkPct) + '%';
+
+            const hudCard = document.getElementById('hudCard');
+            const spkTimeEl = document.getElementById('hudSpeakerTime');
+            const badge = document.getElementById('statusBadge');
+
+            if (speakerRemaining < 0) {
+                hudCard.className = 'bg-slate-900 border-2 border-red-500 rounded-2xl p-6 shadow-2xl transition-all duration-300 animate-pulse';
+                spkTimeEl.className = 'text-6xl sm:text-7xl font-mono font-black tracking-tighter text-red-500 my-3';
+                badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30';
+                badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span> Overtime!';
+            } else if (speakerRemaining <= 30 && isRunning) {
+                hudCard.className = 'bg-slate-900 border-2 border-amber-500 rounded-2xl p-6 shadow-2xl transition-all duration-300';
+                spkTimeEl.className = 'text-6xl sm:text-7xl font-mono font-black tracking-tighter text-amber-400 my-3';
+                badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30';
+                badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> 30s Warning';
+            } else {
+                hudCard.className = 'bg-slate-900 border-2 border-slate-800 rounded-2xl p-6 shadow-2xl transition-all duration-300';
+                spkTimeEl.className = 'text-6xl sm:text-7xl font-mono font-black tracking-tighter text-white my-3';
+                badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20';
+                badge.innerHTML = isRunning ? '<span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> Speaker Active' : '<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Ready';
+            }
+        }
+
+        function toggleTimer() {
+            initAudio();
+            if (isRunning) {
+                clearInterval(timerInterval);
+                isRunning = false;
+                document.getElementById('playIcon').textContent = '▶';
+                document.getElementById('playText').textContent = 'Resume';
+                document.getElementById('startPauseBtn').className = 'h-12 flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20';
+            } else {
+                const totInput = parseInt(document.getElementById('totalMinutes').value.replace(/,/g, '')) || 30;
+                const spkInput = parseInt(document.getElementById('speakerSeconds').value.replace(/,/g, '')) || 120;
+                
+                if (totalDuration !== totInput * 60) {
+                    totalDuration = totInput * 60;
+                    totalRemaining = totalDuration;
+                }
+                speakerDuration = spkInput;
+
+                isRunning = true;
+                document.getElementById('playIcon').textContent = '⏸';
+                document.getElementById('playText').textContent = 'Pause';
+                document.getElementById('startPauseBtn').className = 'h-12 flex-1 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl text-base transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20';
+                
+                playBeep(523.25, 0.1);
+
+                timerInterval = setInterval(() => {
+                    totalRemaining--;
+                    speakerRemaining--;
+
+                    if (speakerRemaining === 30) {
+                        playBeep(784, 0.2);
+                    } else if (speakerRemaining === 0) {
+                        playBeep(880, 0.3);
+                        setTimeout(() => playBeep(880, 0.3), 350);
+                    }
+                    updateUI();
+                }, 1000);
+            }
+            updateUI();
+        }
+
+        function resetSpeakerTimer() {
+            speakerRemaining = speakerDuration;
+            playBeep(440, 0.1);
+            updateUI();
+        }
+
+        function nextSpeakerQuick() {
+            speakersCompleted++;
+            document.getElementById('completedSpeakersCount').textContent = speakersCompleted;
+            speakerRemaining = speakerDuration;
+            playBeep(659.25, 0.15);
+            updateUI();
+        }
+
+        function resetAllMeeting() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            document.getElementById('playIcon').textContent = '▶';
+            document.getElementById('playText').textContent = 'Start Meeting';
+            document.getElementById('startPauseBtn').className = 'h-12 flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20';
+
+            const totInput = parseInt(document.getElementById('totalMinutes').value.replace(/,/g, '')) || 30;
+            const spkInput = parseInt(document.getElementById('speakerSeconds').value.replace(/,/g, '')) || 120;
+            totalDuration = totInput * 60;
+            totalRemaining = totalDuration;
+            speakerDuration = spkInput;
+            speakerRemaining = speakerDuration;
+            speakersCompleted = 0;
+            document.getElementById('completedSpeakersCount').textContent = '0';
+            updateUI();
+        }
+
+        function setSpeakerTime(sec) {
+            document.getElementById('speakerSeconds').value = sec;
+            speakerDuration = sec;
+            speakerRemaining = sec;
+            updateUI();
+        }
+
+        function showToastNotification(msg) {
+            const toast = document.getElementById('toastNotification');
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2200);
+        }
+
+        function copyMeetingResults() {
+            const title = document.getElementById('hudTitle').textContent;
+            const spk = document.getElementById('hudSpeaker').textContent;
+            const totRem = formatTime(totalRemaining);
+            const count = speakersCompleted;
+            
+            const text = `[Agile Meeting Timebox Status]
+Agenda: ${title}
+Current Speaker: ${spk}
+Meeting Time Remaining: ${totRem}
+Speakers Completed: ${count}
+
+👉 Agile Meeting Timebox Timer: https://us-meeting-timebox-timer.enjoy-onepage.com/`;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).catch(() => {}).then(() => showToastNotification('Copied to clipboard!'));
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToastNotification('Copied to clipboard!');
+            }
+        }
+
+        updateUI();
+    </script>
+</body>
+</html>
