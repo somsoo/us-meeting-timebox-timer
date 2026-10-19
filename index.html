@@ -87,6 +87,22 @@
   ]
 }
 </script>
+<style id="global-quality-shield">
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .ad-bottom, .ad-bottom ins {
+    min-height: 280px !important;
+    background: transparent !important;
+  }
+  :focus-visible {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 2px !important;
+  }
+</style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
     <!-- Header -->
@@ -138,11 +154,11 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 mb-1" for="totalMinutes">Total Duration (Minutes)</label>
-                                <input type="number" id="totalMinutes" value="30" min="1" max="180" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <input type="number" id="totalMinutes" value="30" min="1" max="180" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 mb-1" for="speakerSeconds">Speaker Limit (Seconds)</label>
-                                <input type="number" id="speakerSeconds" value="120" min="10" max="900" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <input type="number" id="speakerSeconds" value="120" min="10" max="900" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-base text-white focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric">
                             </div>
                         </div>
                         <div>
